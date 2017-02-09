@@ -16,7 +16,7 @@ set autochdir
 set termencoding=utf-8
 set encoding=utf-8
 
-set guifont=Monospace\ 14
+set guifont=Courier\ New\ 14
 
 " Miscellaneous
 set nowrap
@@ -24,6 +24,12 @@ set ww=<,>
 set backspace=indent,eol,start
 
 set tabstop=4
+set mouse=a
+
+" Show vertical line
+if has("gui_running")
+    set colorcolumn=80
+endif
 
 set number " Precede each line with its line number
 if has("gui_running")
@@ -37,6 +43,7 @@ set scrolloff=4 " Minimal number of screen lines to keep above and below the cur
 set autoindent   " Copy indent from current line when starting a new line.
 set copyindent   " Copy the strucure of the existing lines indent when autoindenting a new line.
 set shiftwidth=4 " Number of spaces to use for each step of (auto)indent.
+autocmd BufRead,BufNewFile *.feature,*.rb set shiftwidth=2 tabstop=2
 set shiftround   " Round indent to multiple of 'shiftwidth'.
 set smarttab     " A <Tab> in front of a line inserts blanks according to 'shiftwidth'.
 set expandtab    " The <Tab> key will insert spaces.
